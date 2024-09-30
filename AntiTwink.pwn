@@ -108,7 +108,7 @@ public reconciliation(playerid) //Створюю паблік перевірки
 	
  	    ShowPlayerDialog(playerid, RESTORE, DIALOG_STYLE_MSGBOX, "Примітка", klaus, "Відновити", "Закрити"); //показую сам діалог гравцю
  	    status_reg[playerid] = true; //присвоюю змінній значення true, для того щоб при повторному виклику пабліка виконувався блок кода із пошуком, вище.
- 		}
+        }
         else
         {
        	  //Код реєстрації 
@@ -124,8 +124,8 @@ stock subnet(playerid, ip_address[]) {
     for (new x = 0; x < strlen(ip_address); x++) { //Циклом звіряю кожну букву ІП
         if (ip_address[x] == '.') point++; // +1 при знаходженні крапки 
 	    if (point == 2) {  // Якщо/коли знайдено другу крапку
-       	 strdel(ip_address, x+1, strlen(ip_address));  // Функцією обрізаємо залишок ІП після 2 крапки, залишаючи тільки підмережу
-       	 break;  //Перериваю цикл
+            strdel(ip_address, x+1, strlen(ip_address));  // Функцією обрізаємо залишок ІП після 2 крапки, залишаючи тільки підмережу
+       	    break;  //Перериваю цикл
         }
     }
     return 1;
