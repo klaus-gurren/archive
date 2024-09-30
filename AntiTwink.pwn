@@ -119,13 +119,13 @@ public reconciliation(playerid) //Створюю паблік перевірки
 
 //Самописна функція для отримання підмережі із ІП, тримайте трохи костиля)
 stock subnet(playerid, ip_address[]) {
-	GetPlayerIp(playerid, ip_address, 17);  // Отримуємо IP гравця
-    new point = 0;  //Змінна для вичислення крапок
-    for (new x = 0; x < strlen(ip_address); x++) { //Циклом звіряю кожну букву ІП
-        if (ip_address[x] == '.') point++; // +1 при знаходженні крапки 
-	    if (point == 2) {  // Якщо/коли знайдено другу крапку
-            strdel(ip_address, x+1, strlen(ip_address));  // Функцією обрізаємо залишок ІП після 2 крапки, залишаючи тільки підмережу
-       	    break;  //Перериваю цикл
+    GetPlayerIp(playerid, ip_address, 17);  // Отримуємо IP гравця
+    new point = 0;  // Змінна для вичислення крапок
+    for (new x = 0; x < strlen(ip_address); x++) {  // Циклом звіряю кожну букву ІП
+        if (ip_address[x] == '.') point++;  // +1 при знаходженні крапки
+        if (point == 2) {  // Якщо/коли знайдено другу крапку
+            strdel(ip_address, x + 1, strlen(ip_address));  // Обрізаємо залишок ІП після 2 крапки
+            break;  // Перериваю цикл
         }
     }
     return 1;
