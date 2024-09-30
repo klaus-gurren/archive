@@ -109,7 +109,7 @@ public reconciliation(playerid) //Створюю паблік перевірки
  	    ShowPlayerDialog(playerid, RESTORE, DIALOG_STYLE_MSGBOX, "Примітка", klaus, "Відновити", "Закрити"); //показую сам діалог гравцю
  	    status_reg[playerid] = true; //присвоюю змінній значення true, для того щоб при повторному виклику пабліка виконувався блок кода із пошуком, вище.
  		}
- 		else
+        else
         {
        	  //Код реєстрації 
         }
