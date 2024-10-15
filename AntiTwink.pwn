@@ -19,7 +19,7 @@ stock IPregCheck(playerid) //створюю сток
     new query[62+(17-2)+1], ip[16]; //створюю змінну яка буде зберігати в собі поточний IP, та для підключення mysql
     subnet(playerid, ip); //функцією дізнаюсь підмережу та записую в змінну
     //не стану розписувати збереження в БД, думаю суть буде зрозуміла
-    format(query, sizeof(query), "SELECT `Name` FROM `"TABLE_ACCOUNT"` WHERE `subreg` = '%s'", ip); //відправляю запит до mysql, таблиці 'account', рядки 'Name' який в прикладі зберігає нік, 'subreg', який теоритично уявімо містить підмережу реєстраційного IP ака
+    format(query, sizeof(query), "SELECT `Name` FROM `"TABLE_ACCOUNT"` WHERE `subreg` = '%s'", ip); //відправляю запит до mysql, таблиці 'account', рядки 'Name' який в прикладі зберігає нік, 'subreg', який теоритично уявімо містить підмережу, збережену в бд
     mysql_tquery(connects, query, "reconciliation", "i", playerid);
 }
 
