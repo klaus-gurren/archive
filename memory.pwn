@@ -4,7 +4,7 @@ new klaus[] = "{FFFFFF}Вами було зареєстровано більше
 		{FFFFFF}Ведіть в лаунчері Nick-Name уже зареєстрованого вами аккаунта\n\
 		Якщо забули Nick-Name натисніть {FFFF00}відновити"; //для прикладу текстова змінна
 	
- 	    ShowPlayerDialog(playerid, вільний ID діалога, DIALOG_STYLE_MSGBOX, "Примітка", klaus, "Відновити", "Закрити"); //показую сам діалог гравцю
+    ShowPlayerDialog(playerid, вільний ID діалога, DIALOG_STYLE_MSGBOX, "Примітка", klaus, "Відновити", "Закрити"); //показую сам діалог гравцю
 
 public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) //В паблік роботи із діалогами
 {
