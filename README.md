@@ -17,11 +17,11 @@
   <summary align="center">ENGLISH</summary>
 
   <h2 align="center">
-    Information after character death
+    Ukraine Mobile | GTA FOR ANDROID
   </h2>
 
   <p align="center">
-    <sup>Hello, I wrote a simple system for GTA-SA servers, a message in the chat after the death of the character, which will indicate the killer (+id), the fist / weapon with which the murder was carried out, the exact date and time. For questions on the social network indicated above.</sup>
+    <sup>killmesagge.pwn - message after death. antiTwink.pwn - anti twink system, recovery. memory.pwn - link html adapter from the game by link (account recovery system). </sup>
   </p>
 
   ---
@@ -31,12 +31,11 @@
   <summary align="center">УКРАЇНСЬКА</summary>
 
   <h2 align="center">
-    Архів пропозицій. Ukraine Mobile | GTA MOBILE
+    Ukraine Mobile | GTA FOR ANDROID
   </h2>
 
   <p align="center">
-    <sup>killmesagge.pwn - повідомлення після смерті. antiTwink.pwn - Система анті твінка.
-memory.pwn - link html перехідник із гри по посиланню(система відновлення account).</sup>
+    <sup>killmesagge.pwn - повідомлення після смерті. antiTwink.pwn - система анті твінка, відновлення. memory.pwn - link html перехідник із гри по посиланню(система відновлення account).</sup>
   </p>
 
   ---
