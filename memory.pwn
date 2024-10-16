@@ -10,7 +10,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) //�
 {
 	case вільний ID діалога: //функція діалога
 	{
-		if(!response) return Kick(playerid); //якщо натиснув закрити - кік
+	    if(!response) return Kick(playerid); //якщо натиснув закрити - кік
 	    OpenLinkForPlayer(playerid, "https://www.uarp.mobi/"); //функцією відправляю запит на перехід на сайт
      }
  return 1;
