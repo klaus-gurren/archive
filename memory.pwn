@@ -15,3 +15,19 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) //�
      }
  return 1;
 }
+
+
+// OpenLinkForPlayer - функція грубо кажучи перехід по силці, із інклуда customhud.inc(якщо інклуд не підключено в моді, то нижче код)
+stock OpenLinkForPlayer(playerid, const szLink[])
+{
+    new BitStream:bitstream = BS_New();
+    BS_WriteValue(bitstream, PR_UINT8, PACKET_CUSTOMRPC);
+    BS_WriteValue(bitstream, PR_UINT32, RPC_OPEN_LINK);
+            
+    BS_WriteValue(bitstream, PR_UINT16, strlen(szLink));
+    BS_WriteValue(bitstream, PR_STRING, szLink);
+
+    BS_Send(bitstream, playerid);
+
+    BS_Delete(bitstream);
+}
