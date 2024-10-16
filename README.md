@@ -31,7 +31,7 @@
   <summary align="center">УКРАЇНСЬКА</summary>
 
   <h2 align="center">
-    Архів пропозицій Ukraine Mobile | GTA MOBILE
+    Архів пропозицій. Ukraine Mobile | GTA MOBILE
   </h2>
 
   <p align="center">
