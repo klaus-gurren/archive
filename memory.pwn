@@ -12,7 +12,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) //�
 	{
 	    if(!response) return Kick(playerid); //якщо натиснув закрити - кік
 	    OpenLinkForPlayer(playerid, "https://www.uarp.mobi/"); //функцією відправляю запит на перехід на сайт
-     }
+    }
  return 1;
 }
 
