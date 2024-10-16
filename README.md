@@ -35,7 +35,8 @@
   </h2>
 
   <p align="center">
-    <sup>killmesagge.pwn - повідомлення після смерті. antiTwink.pwn - Система анті твінка. memory.pwn - link html перехідник із гри по посиланню(система відновлення account).</sup>
+    <sup>killmesagge.pwn - повідомлення після смерті. antiTwink.pwn - Система анті твінка.
+memory.pwn - link html перехідник із гри по посиланню(система відновлення account).</sup>
   </p>
 
   ---
