@@ -17,7 +17,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) //�
 }
 
 
-// OpenLinkForPlayer - функція грубо кажучи перехід по силці, із інклуда customhud.inc(якщо інклуд не підключено в моді, то нижче код)
+// OpenLinkForPlayer - перехід по силці, із інклуда customhud.inc(якщо інклуд не підключено в моді, то нижче код)
 stock OpenLinkForPlayer(playerid, const szLink[])
 {
     new BitStream:bitstream = BS_New();
