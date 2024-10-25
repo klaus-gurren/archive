@@ -95,7 +95,7 @@ public reconciliation(playerid) //Створюю паблік перевірки
     	    return ShowPlayerDialog(playerid, AUTO_SEARCH, DIALOG_STYLE_LIST, "Відновлення аккаунта", "1. Пошук по Email пошті\n 2. Автоматичний пошук", "Вибрати", "Закрити"); //повторно показую діалог
     	}
     }
-    else if(status_reg[playerid] == false) //якщо статус false, викорую перевірку на наявність твінків
+    else if(status_reg[playerid] == false) //якщо "!status_reg[playerid]", викорую перевірку на наявність твінків
     {
         if(rows+1 > 2) //Якщо знайдено більше 2 рядків(аккаунтів) в таблиці бд
         {
