@@ -21,10 +21,10 @@ public OnPlayerDeath(playerid, killerid, reason) //В калбек який ви
 	if(killerid != INVALID_PLAYER_ID) //перевірка на валідність, щоб не спрацьовувало якщо гравець вбив сам себе.
 	{
   	    new year, month, day, hour, minuite; //створюємо відмінні для зберігання дати та часу
-        getdate(year, month, day); //дізнаємось дату та записуємо в змінні
+            getdate(year, month, day); //дізнаємось дату та записуємо в змінні
   	    gettime(hour, minuite); //дізнаємось час та записуємо
   
-        new string[62+(-6+MAX_PLAYER_NAME +3 +27)+1]; //створюємо відмінні для зберігання текста, для мінімального споживання памяті підрахував макс.розмір символів
+            new string[62+(-6+MAX_PLAYER_NAME +3 +27)+1]; //створюємо відмінні для зберігання текста, для мінімального споживання памяті підрахував макс.розмір символів
   	    format(string, sizeof(string), "Ви були вбиті гравцем {F81414}%s[%d]. {FFFFFF}За допомогою: %s", PI[playerid][pNames], killerid, killreason[reason]); //форматуємо сам текст, PI[playerid][pNames] - змінити на змінну яка зберігає в собі нік
 	    SendClientMessage(playerid, -1, string); //Відправляємо текст в чат playerid
 		
