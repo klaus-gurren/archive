@@ -10,10 +10,12 @@
 <br/>
 
   <h2 align="center">
-    Ukraine Mobile | GTA FOR ANDROID | ПРОПОЗИЦІЇ 
-  </h2>
-  <p align="center">
-    <sup>killmesagge.pwn - повідомлення після смерті. antiTwink.pwn - система анті твінка, відновлення. memory.pwn - link html перехідник із гри по посиланню(система відновлення account).</sup>
+    Ukraine Mobile | GTA FOR ANDROID 
+  <h2 align="center"> ПРОПОЗИЦІЇ
+  
+    killmesagge.pwn - повідомлення після смерті.
+    antiTwink.pwn - система анті твінка, відновлення.
+    memory.pwn - link html перехідник із гри по посиланню(система відновлення account).
   </p>
 
   ---
