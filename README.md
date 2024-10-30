@@ -11,7 +11,7 @@
 
   <h2 align="center">
     Ukraine Mobile | GTA FOR ANDROID 
-  <h2 align="center"> OFFERS
+  <h2 align="center"> ПРОПОЗИЦІЇ
 <p align="center">
 <br/>
   killmesagge.pwn - повідомлення після смерті. 
