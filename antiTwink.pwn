@@ -71,7 +71,6 @@ public reconciliation(playerid) //Створюю паблік перевірки
     	if(rows)  //якщо по запиту знайдено поле в таблиці
         {
   	    new nick[24], listem[120], txt[MAX_PLAYER_NAME +4]; //+ строкові змінні
- 	    new const message[] = "{FFFFFF}Список знайдених аккаунтів\n\%s"; //+ для прикладу текстова константа
 		 
 	    for(new i; i < rows; i++) //цикл для перевірки/отримання ніка та форматування його в змінну, якщо значення 'i' менше за кількість рядків у таблиці то цикл працює
 	    {
@@ -80,7 +79,7 @@ public reconciliation(playerid) //Створюю паблік перевірки
    	        strcat(listem, txt); //функцією strcat записує поочередно із змінної 'txt' ніки твінків в змінну listem 
 	    }
   	    new string[sizeof(message) + sizeof(listem) +1]; //створюю змінну для загального форматування в діалог
- 	    format(string, sizeof(string), message,  listem); //форматую в змінну 'string' message текст із константи, зі значенням "listem", що містить в собі список твінків
+ 	    format(string, sizeof(string), "{FFFFFF}Список знайдених аккаунтів\n\%s",  listem); //форматую в змінну 'string' message текст із константи, зі значенням "listem", що містить в собі список твінків
  	    ShowPlayerDialog(playerid, RESTORE, DIALOG_STYLE_MSGBOX, "Пошук аккаунта", string, "Назад", "Закрити"); //показую сам діалог гравцю
         }
 	else //якщо в бд не знайдено даних
