@@ -78,9 +78,8 @@ public reconciliation(playerid) //Створюю паблік перевірки
 	        format(txt, sizeof(txt), "%d. %s\n", i +1, nick); //функцією форматую нік твінків, 'i +1' із номерацією рядків
    	        strcat(listem, txt); //функцією strcat записує поочередно із змінної 'txt' ніки твінків в змінну listem 
 	    }
-  	    new string[sizeof(message) + sizeof(listem) +1]; //створюю змінну для загального форматування в діалог
- 	    format(string, sizeof(string), "{FFFFFF}Список знайдених аккаунтів\n\%s",  listem); //форматую текст, зі значенням "listem", що містить в собі список твінків
- 	    ShowPlayerDialog(playerid, RESTORE, DIALOG_STYLE_MSGBOX, "Пошук аккаунта", string, "Назад", "Закрити"); //показую сам діалог гравцю
+ 	    format(listem, sizeof(listem), "{FFFFFF}Список знайдених аккаунтів\n\%s",  listem); //форматую текст, зі значенням "listem", що містить в собі список твінків
+ 	    ShowPlayerDialog(playerid, RESTORE, DIALOG_STYLE_MSGBOX, "Пошук аккаунта", listem, "Назад", "Закрити"); //показую сам діалог гравцю
         }
 	else //якщо в бд не знайдено даних
 	{
