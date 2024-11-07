@@ -3,7 +3,7 @@
 	{FFFFFF} -  білий, -1
 	{FFFF00} - жовтий 
 */ 
-new const killreason[][] = {
+new const killreason[] = {
     "Кулаків", "Кастета", "Клюшки для гольфа", "Поліцейської дубинки", 
     "Ножа", "Бейсбольної бити", "Лопати", "Більярдного кия", 
     "Катани", "Бензопили", "Великого дилдо", "Малого дилдо", 
@@ -28,7 +28,7 @@ public OnPlayerDeath(playerid, killerid, reason) //В калбек який ви
   	    format(string, sizeof(string), "Ви були вбиті гравцем {F81414}%s[%d]. {FFFFFF}За допомогою: %s", Klaus[killerid], killerid, killreason[reason]); //форматуємо сам текст, Klaus[killerid] - змінити на змінну яка зберігає в собі нік, з аргументом killerid
 	    SendClientMessage(playerid, -1, string); //Відправляємо текст в чат playerid
 		
- 	    format(string, sizeof(string), "Час смерті {FFFF00}%02d:%02d | {FFFFFF}Дата: {FFFF00}%02d.%02d.%d", hour, minuite, day, month, year);
+ 	    format(string, sizeof(string), "Час смерті {FFFF00}%02d:%02d | {FFFFFF}Дата: {FFFF00}%02d.%02d.%d", hour+1, minuite, day, month, year);
 	    SendClientMessage(playerid, -1, string);
 	}
     return 1;
