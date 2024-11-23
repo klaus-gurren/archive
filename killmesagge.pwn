@@ -24,7 +24,7 @@ public OnPlayerDeath(playerid, killerid, reason) //В калбек який ви
             getdate(year, month, day); //дізнаємось дату та записуємо в змінні
   	    gettime(hour, minuite); //дізнаємось час та записуємо
   
-            new string[62+(-6+MAX_PLAYER_NAME) + (3+27)+1]; //створюємо відмінні для зберігання текста, для мінімального споживання памяті підрахував макс.розмір символів
+            new string[62+(-6+MAX_PLAYER_NAME) + (3+27)+1]; //створюю масив для зберігання текста, з цілью мінімального споживання памяті підрахував макс.розмір символів
   	    format(string, sizeof(string), "Ви були вбиті гравцем {F81414}%s[%d]. {FFFFFF}За допомогою: %s", Klaus[killerid], killerid, killreason[reason]); //форматуємо сам текст, Klaus[killerid] - змінити на змінну яка зберігає в собі нік, з аргументом killerid
 	    SendClientMessage(playerid, -1, string); //Відправляємо текст в чат playerid
 		
