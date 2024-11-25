@@ -12,7 +12,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) //�
 	{
         if(!response) return 1;
         if(!strlen(inputtext)) return ShowPlayerDialog(playerid, D_NAME, DIALOG_STYLE_INPUT, "Змінити ім'я та прізвище", "Введіть ваш бажаний нік у поле нижче, в форматі (Imya_Prizvishe)", "Продовжити", "Скасувати");
-		if(strlen(inputtext) < 6 || strlen(inputtext) > 24) return  SendClientMessage(playerid, -1, "Не менше 6 та більше 24 букв");
+	        if(strlen(inputtext) < 6 || strlen(inputtext) > 24) return  SendClientMessage(playerid, -1, "Не менше 6 та більше 24 букв");
 		if(!strcmp(inputtext, "Imya_Prizvishe", true)) return SendClientMessage(playerid, -1, "Дурачок?)");
 
 		new ua = strfind(inputtext, "_", true);
