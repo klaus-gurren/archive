@@ -76,7 +76,7 @@ public reconciliation(playerid) //Створюю паблік перевірки
 	    {
   	        cache_get_field_content(i, "Name", nick, connects, 32); //функція загрузки, Name - як і вище розписано у нас рядок із таблиці account в базі який зберігає в собі нік, записую нік в змінну 'nick'
 	        format(txt, sizeof(txt), "%d. %s\n", i +1, nick); //функцією форматую нік твінків, 'i +1' із номерацією рядків
-   	        strcat(listem, txt); //функцією strcat записує поочередно із змінної 'txt' ніки твінків в змінну listem 
+   	        strcat(listem, txt); //функцією strcat записує поочередно із масива 'txt' ніки твінків в 'listem'
 	    }
  	    format(listem, sizeof(listem), "{FFFFFF}Список знайдених аккаунтів\n\%s",  listem); //форматую текст, зі значенням "listem", що містить в собі список твінків
  	    ShowPlayerDialog(playerid, RESTORE, DIALOG_STYLE_MSGBOX, "Пошук аккаунта", listem, "Назад", "Закрити"); //показую сам діалог гравцю
