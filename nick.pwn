@@ -15,11 +15,11 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) //�
 	if(strlen(inputtext) < 6 || strlen(inputtext) > 24) return  SendClientMessage(playerid, -1, "Не менше 6 та більше 24 букв");
 	if(!strcmp(inputtext, "Imya_Prizvishe", true)) return SendClientMessage(playerid, -1, "Дурачок?)");
 
-	new ua = strfind(inputtext, "_", true);
-	if (ua == -1) return SendClientMessage(playerid, -1, "Невірний формат ведення! (приклад: Imya_Prizvishe)"); //якщо відсутнє нижнє підкреслення
+	new underscorePos = strfind(inputtext, "_", true);
+	if (underscorePos == -1) return SendClientMessage(playerid, -1, "Невірний формат ведення! (приклад: Imya_Prizvishe)"); //якщо відсутнє нижнє підкреслення
 		
-	new kl = (strlen(inputtext)-(ua+1)); //від повного ніка віднімаю ім'я +1 з врахуванням нижнього підкреслення, змінна містить кількість букв фамілії
-	if(ua < 3 || kl < 3) return SendClientMessage(playerid, -1, "Довжина імені чи прізвища має бути не менше 3 символів");
+	new surnameLength = (strlen(inputtext)-(underscorePos)+1); //від повного ніка віднімаю ім'я +1 з врахуванням нижнього підкреслення, змінна містить кількість букв фамілії
+	if(underscorePos < 3 || surnameLength < 3) return SendClientMessage(playerid, -1, "Довжина імені чи прізвища має бути не менше 3 символів");
 		
         new lower, big = 0;
         for(new i = 0; i < strlen(inputtext); i++)
@@ -28,7 +28,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[]) //�
             {
             	case 'A'..'Z': 
 		{
-		    if(i == 0 || i == ua+1) big++;
+		    if(i == 0 || i == underscorePos+1) big++;
 		    else {
 		        SendClientMessage(playerid, -1, "Тільки ім'я та прізвище повинно починатися із великої літери!");
 			return 1;
