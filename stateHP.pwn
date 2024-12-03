@@ -16,7 +16,7 @@ public OnPlayerSpawn(playerid)
 	SetPlayerHealth(playerid, klaus[playerid][HP]);
 	if(klaus[playerid][HP] < 10) { //Якщо менше 10 ХП
 		//спавн в лікарні
-                SetPlayerHealth(playerid, 100);
+                SetPlayerHealth(playerid, 1);
 	}
 	else
 	{
