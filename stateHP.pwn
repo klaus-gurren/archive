@@ -7,7 +7,7 @@ new klaus[MAX_PLAYERS][pInfo];
 public OnPlayerDisconnect(playerid, reason)
 {
 	GetPlayerHealth(playerid, klaus[playerid][HP]); //записую рівень HP
-	//зберегти в базу даних
+	//збереження в базу даних
 	return 1;
 }
 
