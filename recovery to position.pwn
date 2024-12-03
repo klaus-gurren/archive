@@ -16,7 +16,7 @@ public OnPlayerDisconnect(playerid, reason)
         klaus[playerid][Z] = 0.0;
         print("Вийшов під час смерті, координати не збережено");
     }
-    else //якщо не під час смерті зберігаю
+    else //якщо не під час смерті зберігаю координати
     {
         GetPlayerPos(playerid, klaus[playerid][X], klaus[playerid][Y], klaus[playerid][Z]);
         print("координати збережено");
