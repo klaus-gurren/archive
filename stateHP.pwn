@@ -17,7 +17,7 @@ public OnPlayerSpawn(playerid)
 	if(klaus[playerid][HP] < 10) //Якщо менше 10 ХП
         {
             if(klaus[playerid][HP] == 0) SetPlayerHealth(playerid, 1);
-	//тп в лікарню + видав 1HP, щоб не помирав по 100 раз якщо hp == 0)
+	    //тп в лікарню + видав 1HP, щоб не помирав по 100 раз якщо hp == 0)
         }
 	else
 	{
