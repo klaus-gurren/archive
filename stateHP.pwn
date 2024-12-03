@@ -11,7 +11,7 @@ public OnPlayerDisconnect(playerid, reason)
 	return 1;
 }
 
-public OnPlayerConnect(playerid)
+public OnPlayerSpawn(playerid)
 {
 	SetPlayerHealth(playerid, klaus[playerid][HP]);
 	if(klaus[playerid][HP] < 10) { //Якщо менше 10 ХП
