@@ -33,5 +33,6 @@ public OnPlayerSpawn(playerid)
         SetPlayerPos(playerid, klaus[playerid][X] ,klaus[playerid][Y],klaus[playerid][Z]); //приклад телепорт на тіж координати
         print("По координатах відновлено");
     }
+    else { //звичайний спавн }
     return 1;
 }
