@@ -22,7 +22,6 @@ public OnPlayerSpawn(playerid)
         }
 	else
 	{
-		SendClientMessage(playerid, -1, "Відновило на місце вихода");
 		//код відновлення на місце виходу/звичайний спавн
 	}
 	return 1;
