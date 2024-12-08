@@ -11,6 +11,11 @@ public OnPlayerDisconnect(playerid, reason)
 	return 1;
 }
 
+public OnPlayerConnect(playerid)
+{
+    //загрузка із бд в змінну
+    return 1;
+}
 public OnPlayerSpawn(playerid)
 {
 	SetPlayerHealth(playerid, klaus[playerid][HP]);
