@@ -18,7 +18,7 @@ public OnPlayerSpawn(playerid)
         else if(klaus[playerid][HP] == 0)
         {
     	    SetPlayerHealth(playerid, 1);
-	    SendClientMessage(playerid, -1, "Спавн в лікарні");
+	    //спавн в лікарні
         }
 	else
 	{
