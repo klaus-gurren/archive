@@ -31,3 +31,5 @@ stock OpenLinkForPlayer(playerid, const szLink[])
 
     BS_Delete(bitstream);
 }
+//відредаговано
+//ось так ось
