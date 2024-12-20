@@ -31,4 +31,3 @@ stock OpenLinkForPlayer(playerid, const szLink[])
 
     BS_Delete(bitstream);
 }
-//tst
