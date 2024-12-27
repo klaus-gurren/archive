@@ -27,7 +27,7 @@ public OnPlayerDisconnect(playerid, reason)
 public OnPlayerSpawn(playerid)
 {
     //При спавні, після авторизації
-    if(klaus[playerid][X] != 0.0 && klaus[playerid][Y] != 0.0 && klaus[playerid][Z] != 0.0)//якщо координати не нульові
+    if(klaus[playerid][X] + klaus[playerid][Y] + klaus[playerid][Z] != 0.0)//якщо координати не нульові
     {
         //функціонал відновлення, в прикладі тп
         SetPlayerPos(playerid, klaus[playerid][X] ,klaus[playerid][Y],klaus[playerid][Z]); //приклад телепорт на тіж координати
