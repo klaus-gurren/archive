@@ -24,7 +24,7 @@ public OnPlayerSpawn(playerid)
         return //повернути спавном в лікарні;
     }
     SetPlayerHealth(playerid, klaus[playerid][HP]);
-	if(klaus[playerid][HP] < 10) SendClientMessage(playerid, -1, "Підказка | У вас мало здоров'я, використайте аптечку або зверніться в лікарню!");
+    if(klaus[playerid][HP] < 10) SendClientMessage(playerid, -1, "Підказка | У вас мало здоров'я, використайте аптечку або зверніться в лікарню!");
 	//код відновлення на місце виходу/звичайний спавн
 	return 1;
 }
