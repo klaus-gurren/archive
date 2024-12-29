@@ -6,7 +6,7 @@ enum PrizCat
     rouleteName[120],
     rouleteID,
     rouletePriz,
-    testUa
+    klaus
 };
 new category_name[40][PrizCat];
 
@@ -16,7 +16,7 @@ enum site_prize
     sCategory[15],
     sValue[15],
     sPrice[15],
-    Klaus
+    sex
 };
 new prize_info[MAX_PLAYERS][site_prize];
 
@@ -61,6 +61,7 @@ callback::LoadRoulette()
     else 
     {
         print("Error: Помилка загрузки списка призів рулетки!");
+        go
     }
     return 1;
 }
