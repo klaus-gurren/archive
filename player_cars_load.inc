@@ -4,13 +4,13 @@ new pSelectedCar[MAX_PLAYERS] = {-1,...};
 CMD:car(playerid)
 {
 	if(GetPVarIntNew(playerid, "trucker_job") == 1)
-		return SendErr(playerid, !"Неможливо використовувати під час роботи!");
+		return SendErr(playerid, !"РќРµРјРѕР¶Р»РёРІРѕ РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё РїС–Рґ С‡Р°СЃ СЂРѕР±РѕС‚Рё!");
 
 	if(GetPVarIntNew(playerid, "active_player_gruz_taxi") == 1)
-		return SendErr(playerid, !"Неможливо використовувати під час роботи!");
+		return SendErr(playerid, !"РќРµРјРѕР¶Р»РёРІРѕ РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё РїС–Рґ С‡Р°СЃ СЂРѕР±РѕС‚Рё!");
 
 	if(GetPVarIntNew(playerid, "active_player_gruz_taxi_p") == 1)
-		return SendErr(playerid, !"Неможливо використовувати під час роботи!");
+		return SendErr(playerid, !"РќРµРјРѕР¶Р»РёРІРѕ РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё РїС–Рґ С‡Р°СЃ СЂРѕР±РѕС‚Рё!");
 
 	show_player_cars(playerid);
 
@@ -21,19 +21,19 @@ CMD:park(playerid, params[])
 {
 
 	if(!get_player_in_p_car(playerid))
-		return SendErr(playerid, !"Ви повинні сидіти в особистому транспорті!");
+		return SendErr(playerid, !"Р’Рё РїРѕРІРёРЅРЅС– СЃРёРґС–С‚Рё РІ РѕСЃРѕР±РёСЃС‚РѕРјСѓ С‚СЂР°РЅСЃРїРѕСЂС‚С–!");
 
 	if(GetPVarIntNew(playerid, "active_player_gruz_taxi") == 1)
-		return SendErr(playerid, !"Неможливо використовувати під час роботи!");
+		return SendErr(playerid, !"РќРµРјРѕР¶Р»РёРІРѕ РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё РїС–Рґ С‡Р°СЃ СЂРѕР±РѕС‚Рё!");
 
 	if(GetPVarIntNew(playerid, "active_player_gruz_taxi_p") == 1)
-		return SendErr(playerid, !"Неможливо використовувати під час роботи!");
+		return SendErr(playerid, !"РќРµРјРѕР¶Р»РёРІРѕ РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё РїС–Рґ С‡Р°СЃ СЂРѕР±РѕС‚Рё!");
 
 	if(pGreenZone{playerid})
-		return SendErr(playerid, !"Заборонено паркувати особистий транспорт у Зеленій Зоні!");
+		return SendErr(playerid, !"Р—Р°Р±РѕСЂРѕРЅРµРЅРѕ РїР°СЂРєСѓРІР°С‚Рё РѕСЃРѕР±РёСЃС‚РёР№ С‚СЂР°РЅСЃРїРѕСЂС‚ Сѓ Р—РµР»РµРЅС–Р№ Р—РѕРЅС–!");
 
 	if(GetPVarIntNew(playerid, "cooldown_park_car") > gettime())
-		return SendErr(playerid, !"Паркувати транспортний засіб можна раз на 1 хвилину!");
+		return SendErr(playerid, !"РџР°СЂРєСѓРІР°С‚Рё С‚СЂР°РЅСЃРїРѕСЂС‚РЅРёР№ Р·Р°СЃС–Р± РјРѕР¶РЅР° СЂР°Р· РЅР° 1 С…РІРёР»РёРЅСѓ!");
 
 	if(isAnyHouseInPlayerList(playerid) || pData[playerid][pGarage] != -1)
 	{	
@@ -127,7 +127,7 @@ CMD:park(playerid, params[])
 
 				mysql_tquery(g_sql, GlobalString, !"", !"");
 
-				SendSucc(playerid, !"Ви перепаркували особистий транспортний засіб");
+				SendSucc(playerid, !"Р’Рё РїРµСЂРµРїР°СЂРєСѓРІР°Р»Рё РѕСЃРѕР±РёСЃС‚РёР№ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРёР№ Р·Р°СЃС–Р±");
 				break;
 			}
 		}
@@ -135,7 +135,7 @@ CMD:park(playerid, params[])
 	else
 	{
 		if(!GetPVarIntNew(playerid, "player_in_parking"))
-			return SendErr(playerid, !"Оскільки у Вас немає майна, припаркувати автомобіль можна тільки на паркінгу!");
+			return SendErr(playerid, !"РћСЃРєС–Р»СЊРєРё Сѓ Р’Р°СЃ РЅРµРјР°С” РјР°Р№РЅР°, РїСЂРёРїР°СЂРєСѓРІР°С‚Рё Р°РІС‚РѕРјРѕР±С–Р»СЊ РјРѕР¶РЅР° С‚С–Р»СЊРєРё РЅР° РїР°СЂРєС–РЅРіСѓ!");
 
 		for(new i; i < MAX_PLAYERS_VEHICLE_SL; i++)
 		{
@@ -228,14 +228,14 @@ CMD:park(playerid, params[])
 
 				mysql_tquery(g_sql, GlobalString, !"", !"");
 
-				SendSucc(playerid, !"Ви перепаркували особистий транспортний засіб");
+				SendSucc(playerid, !"Р’Рё РїРµСЂРµРїР°СЂРєСѓРІР°Р»Рё РѕСЃРѕР±РёСЃС‚РёР№ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРёР№ Р·Р°СЃС–Р±");
 				break;
 			}
 		}		
 	}
 
-	SendInf(playerid, !"Ви успішно припаркували свій транспортний засіб!");
-	SendInf(playerid, !"Тепер при вході він буде з'являтися на цьому місці!");	
+	SendInf(playerid, !"Р’Рё СѓСЃРїС–С€РЅРѕ РїСЂРёРїР°СЂРєСѓРІР°Р»Рё СЃРІС–Р№ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРёР№ Р·Р°СЃС–Р±!");
+	SendInf(playerid, !"РўРµРїРµСЂ РїСЂРё РІС…РѕРґС– РІС–РЅ Р±СѓРґРµ Р·'СЏРІР»СЏС‚РёСЃСЏ РЅР° С†СЊРѕРјСѓ РјС–СЃС†С–!");	
 
 	SetPVarIntNew(playerid, "cooldown_park_car", gettime()+60);
 
@@ -255,14 +255,14 @@ stock show_car_docs(playerid, sql_id)
 			GetVehicleHealth(veh, health);
 			
 			format(GlobalString, sizeof GlobalString, "\
-			"cWH"Назва: "LIME_GREEN"%s\n\n\
-			"cWH"Модель: "LIME_GREEN"%d\n\
-			"cWH"Стан: "LIME_GREEN"%d\n\
-			"cWH"Пробіг: "LIME_GREEN"%d\n\
-			"cWH"Паливо: "LIME_GREEN"%f\n\
-			"cWH"Колір: "LIME_GREEN"ID %d, %d\n\
-			"cWH"Держ.вартість: "LIME_GREEN"%d\n\
-			"cWH"Номерні знаки: "LIME_GREEN"%s %s\n\
+			"cWH"РќР°Р·РІР°: "LIME_GREEN"%s\n\n\
+			"cWH"РњРѕРґРµР»СЊ: "LIME_GREEN"%d\n\
+			"cWH"РЎС‚Р°РЅ: "LIME_GREEN"%d\n\
+			"cWH"РџСЂРѕР±С–Рі: "LIME_GREEN"%d\n\
+			"cWH"РџР°Р»РёРІРѕ: "LIME_GREEN"%f\n\
+			"cWH"РљРѕР»С–СЂ: "LIME_GREEN"ID %d, %d\n\
+			"cWH"Р”РµСЂР¶.РІР°СЂС‚С–СЃС‚СЊ: "LIME_GREEN"%d\n\
+			"cWH"РќРѕРјРµСЂРЅС– Р·РЅР°РєРё: "LIME_GREEN"%s %s\n\
 			",
 			transport_config[transport][transport_name],
 			model,
@@ -277,8 +277,8 @@ stock show_car_docs(playerid, sql_id)
 			);
 			
 			new string[128];
-			format(string, sizeof string, ""LIME_GREEN"Документи на ТЗ №%d", sql_id); 
-			SPD(playerid, 0x0, DIALOG_STYLE_MSGBOX, string, GlobalString, "Закрити", "");
+			format(string, sizeof string, ""LIME_GREEN"Р”РѕРєСѓРјРµРЅС‚Рё РЅР° РўР— в„–%d", sql_id); 
+			SPD(playerid, 0x0, DIALOG_STYLE_MSGBOX, string, GlobalString, "Р—Р°РєСЂРёС‚Рё", "");
 			
 			break;
 		}
@@ -286,7 +286,7 @@ stock show_car_docs(playerid, sql_id)
 	return 1;
 }
 
-// TODO: рефактор всіх Cache функцій
+// TODO: СЂРµС„Р°РєС‚РѕСЂ РІСЃС–С… Cache С„СѓРЅРєС†С–Р№
 stock show_player_cars(playerid)
 {
 	mysql_format(g_sql, GlobalString, sizeof(GlobalString), "SELECT * FROM player_vehicles WHERE userid = '%d'", pData[playerid][pMysqlID]);
@@ -299,7 +299,7 @@ stock show_player_cars(playerid)
 	if(!row_count)
 	{
 		cache_delete(result);
-		return SendErr(playerid, !"Транспорт не знайдено"), SetPVarIntNew(playerid, "CarSellStatus", false);
+		return SendErr(playerid, !"РўСЂР°РЅСЃРїРѕСЂС‚ РЅРµ Р·РЅР°Р№РґРµРЅРѕ"), SetPVarIntNew(playerid, "CarSellStatus", false);
 	}
 
 	new 
@@ -308,7 +308,7 @@ stock show_player_cars(playerid)
 		tempcarData,
 		tempunixData;
 
-	format(GlobalString, sizeof(GlobalString), ""cGREY"Транспорт\t"cGREY"Стан\t"cGREY"Термін дії\n");
+	format(GlobalString, sizeof(GlobalString), ""cGREY"РўСЂР°РЅСЃРїРѕСЂС‚\t"cGREY"РЎС‚Р°РЅ\t"cGREY"РўРµСЂРјС–РЅ РґС–С—\n");
 
 	new vehicleStatus[32];
 
@@ -324,18 +324,18 @@ stock show_player_cars(playerid)
 			new year, month, day, hour, minute;
 			gmtime(tempunixData, year, month, day, hour, minute, _);
 
-			if(gettime() < tempunixData) format(vehicleStatus, sizeof(vehicleStatus), ""cGR"[%dр.%dм.%dд %dг. %dх.]", year, month, day, hour, minute);
-			else format(vehicleStatus, sizeof(vehicleStatus), ""cRED"[%dр.%dм.%dд %dг. %dх.]", year, month, day, hour, minute);
+			if(gettime() < tempunixData) format(vehicleStatus, sizeof(vehicleStatus), ""cGR"[%dСЂ.%dРј.%dРґ %dРі. %dС….]", year, month, day, hour, minute);
+			else format(vehicleStatus, sizeof(vehicleStatus), ""cRED"[%dСЂ.%dРј.%dРґ %dРі. %dС….]", year, month, day, hour, minute);
 		}
-		else format(vehicleStatus, sizeof(vehicleStatus), ""LIME_GREEN"[Без терміну дії]");
+		else format(vehicleStatus, sizeof(vehicleStatus), ""LIME_GREEN"[Р‘РµР· С‚РµСЂРјС–РЅСѓ РґС–С—]");
 
 		format(GlobalString, sizeof(GlobalString), "%s"LIME_GREEN"%s\t"cGREY"%s\t%s\n",
 			GlobalString, transport_config[modelid-400][transport_name],
-			get_player_veh_status(sql_id) == 1 ? (""cGR"[Завантажено]") : (""cLRED"[Не завантажено]"),
+			get_player_veh_status(sql_id) == 1 ? (""cGR"[Р—Р°РІР°РЅС‚Р°Р¶РµРЅРѕ]") : (""cLRED"[РќРµ Р·Р°РІР°РЅС‚Р°Р¶РµРЅРѕ]"),
 			vehicleStatus);
 	}
 
-	SPD(playerid, DIALOG_PLAYER_VEHICLE_LIST, DIALOG_STYLE_TABLIST_HEADERS, !""LIME_GREEN"Особистий транспорт", GlobalString, !"Обрати", !"Закрити");
+	SPD(playerid, DIALOG_PLAYER_VEHICLE_LIST, DIALOG_STYLE_TABLIST_HEADERS, !""LIME_GREEN"РћСЃРѕР±РёСЃС‚РёР№ С‚СЂР°РЅСЃРїРѕСЂС‚", GlobalString, !"РћР±СЂР°С‚Рё", !"Р—Р°РєСЂРёС‚Рё");
 
 	cache_delete(result);
 
@@ -365,7 +365,7 @@ stock get_player_in_p_car(playerid)
 	return false;
 }
 
-//тут
+//С‚СѓС‚
 stock show_player_vehicle_menu(playerid, sql_id)
 {
 	SetPVarIntNew(playerid, "player_vehicle_select_sql", sql_id);
@@ -382,17 +382,17 @@ stock show_player_vehicle_menu(playerid, sql_id)
 	}
 
     new text_mark[100];
-    format(text_mark, sizeof(text_mark), ""cWH"Особистий транспорт "LIME_GREEN"%s[%d]", transport_config[GetVehicleModel(vehicle_id)-400][transport_name], GetPVarIntNew(playerid, "player_vehicle_select_sql"));
+    format(text_mark, sizeof(text_mark), ""cWH"РћСЃРѕР±РёСЃС‚РёР№ С‚СЂР°РЅСЃРїРѕСЂС‚ "LIME_GREEN"%s[%d]", transport_config[GetVehicleModel(vehicle_id)-400][transport_name], GetPVarIntNew(playerid, "player_vehicle_select_sql"));
 
 	SPD(playerid, DIALOG_CAR_CHANGE_PANEL, DIALOG_STYLE_TABLIST_HEADERS, text_mark, "\
-	    "cGREY"Пункт\t"cGREY"Дія\n\
-	    "LIME_GREEN"1. "cWH"Позначити транспорт на GPS\t"cGR"300 гривень\n\
-	    "LIME_GREEN"2. "cWH"Інформація про транспорт\t"LIME_GREEN"Вивчити\n\
-	    "LIME_GREEN"3. "cWH"Буксирування транспорту в гараж\t"cGR"1500 гривень\n\
-	    "LIME_GREEN"4. "cWH"Стан автомобіля\t"cGR"Вивчити\n\
-		"LIME_GREEN"5. "cWH"Документи на транспорт\t"cGR"Вивчити\n\
-	    "LIME_GREEN"6. "cWH"Припаркувати транспорт\t\n\
-		"LIME_GREEN"7. "cWH"Вивантажити автомобіль з сервера", !"Обрати", !"Закрити");		
+	    "cGREY"РџСѓРЅРєС‚\t"cGREY"Р”С–СЏ\n\
+	    "LIME_GREEN"1. "cWH"РџРѕР·РЅР°С‡РёС‚Рё С‚СЂР°РЅСЃРїРѕСЂС‚ РЅР° GPS\t"cGR"300 РіСЂРёРІРµРЅСЊ\n\
+	    "LIME_GREEN"2. "cWH"Р†РЅС„РѕСЂРјР°С†С–СЏ РїСЂРѕ С‚СЂР°РЅСЃРїРѕСЂС‚\t"LIME_GREEN"Р’РёРІС‡РёС‚Рё\n\
+	    "LIME_GREEN"3. "cWH"Р‘СѓРєСЃРёСЂСѓРІР°РЅРЅСЏ С‚СЂР°РЅСЃРїРѕСЂС‚Сѓ РІ РіР°СЂР°Р¶\t"cGR"1500 РіСЂРёРІРµРЅСЊ\n\
+	    "LIME_GREEN"4. "cWH"РЎС‚Р°РЅ Р°РІС‚РѕРјРѕР±С–Р»СЏ\t"cGR"Р’РёРІС‡РёС‚Рё\n\
+		"LIME_GREEN"5. "cWH"Р”РѕРєСѓРјРµРЅС‚Рё РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚\t"cGR"Р’РёРІС‡РёС‚Рё\n\
+	    "LIME_GREEN"6. "cWH"РџСЂРёРїР°СЂРєСѓРІР°С‚Рё С‚СЂР°РЅСЃРїРѕСЂС‚\t\n\
+		"LIME_GREEN"7. "cWH"Р’РёРІР°РЅС‚Р°Р¶РёС‚Рё Р°РІС‚РѕРјРѕР±С–Р»СЊ Р· СЃРµСЂРІРµСЂР°", !"РћР±СЂР°С‚Рё", !"Р—Р°РєСЂРёС‚Рё");		
 
 	return true;
 }
@@ -545,7 +545,7 @@ callback:: MYSQL_SellCar(playerid, car_num)
 	cache_get_value_name_int(car_num, "id", sql_id);
 	cache_get_value_name_int(car_num, "tempcar", tempcarstatus);
 
-	if(tempcarstatus) return SendErr(playerid, !"Ви не можете продати тимчасовий транспортний засіб!");
+	if(tempcarstatus) return SendErr(playerid, !"Р’Рё РЅРµ РјРѕР¶РµС‚Рµ РїСЂРѕРґР°С‚Рё С‚РёРјС‡Р°СЃРѕРІРёР№ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРёР№ Р·Р°СЃС–Р±!");
 
 	dialog_accept_sell_car_gos(playerid, sql_id);
 	return true;
@@ -577,7 +577,7 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 			if(!row_count)
 			{
 				cache_delete(result);
-				return SendErr(playerid, !"Сталася технічна помилка! Код: #100");
+				return SendErr(playerid, !"РЎС‚Р°Р»Р°СЃСЏ С‚РµС…РЅС–С‡РЅР° РїРѕРјРёР»РєР°! РљРѕРґ: #100");
 			}
 
 			new 	
@@ -608,7 +608,7 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 					if(GetPlayerMoneyEx(playerid) < 300)
 					{
 						pSelectedCar[playerid] = -1;
-						return SendErr(playerid, !"У Вас недостатньо грошей для позначки транспорту по GPS!"); 
+						return SendErr(playerid, !"РЈ Р’Р°СЃ РЅРµРґРѕСЃС‚Р°С‚РЅСЊРѕ РіСЂРѕС€РµР№ РґР»СЏ РїРѕР·РЅР°С‡РєРё С‚СЂР°РЅСЃРїРѕСЂС‚Сѓ РїРѕ GPS!"); 
 					}
 					
 					if(vw > 0)
@@ -616,18 +616,18 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 						pTemp[playerid][pGPS] = true;
 						
 						SetPlayerCheckpointEx(playerid, 2214.7146,-1967.1420,18.5226, 4.0);
-						SendSucc(playerid, !"Штраф стоянка, де останній раз був автомобіль позначений на карті!");
+						SendSucc(playerid, !"РЁС‚СЂР°С„ СЃС‚РѕСЏРЅРєР°, РґРµ РѕСЃС‚Р°РЅРЅС–Р№ СЂР°Р· Р±СѓРІ Р°РІС‚РѕРјРѕР±С–Р»СЊ РїРѕР·РЅР°С‡РµРЅРёР№ РЅР° РєР°СЂС‚С–!");
 					}
 					else 
 					{
 						SetPlayerCheckpointEx(playerid, x, y, z, 4.0);
 						pTemp[playerid][pGPS] = true;
 
-						SendSucc(playerid, !"Ви позначили транспортний засіб на карті");
+						SendSucc(playerid, !"Р’Рё РїРѕР·РЅР°С‡РёР»Рё С‚СЂР°РЅСЃРїРѕСЂС‚РЅРёР№ Р·Р°СЃС–Р± РЅР° РєР°СЂС‚С–");
 					}
 						
 					pSelectedCar[playerid] = -1;
-					give_money(playerid, -300, "Плата за позначку авто");
+					give_money(playerid, -300, "РџР»Р°С‚Р° Р·Р° РїРѕР·РЅР°С‡РєСѓ Р°РІС‚Рѕ");
 				}
 				
 				case 1:
@@ -639,22 +639,22 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 					)
 					{
 						pSelectedCar[playerid] = -1;
-						SendErr(playerid, !"Вам недоступний для завантаження інший транспорт!");
-						SendErr(playerid, !"Для використання кількох видів транспорту потрібен гараж!");
+						SendErr(playerid, !"Р’Р°Рј РЅРµРґРѕСЃС‚СѓРїРЅРёР№ РґР»СЏ Р·Р°РІР°РЅС‚Р°Р¶РµРЅРЅСЏ С–РЅС€РёР№ С‚СЂР°РЅСЃРїРѕСЂС‚!");
+						SendErr(playerid, !"Р”Р»СЏ РІРёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ РєС–Р»СЊРєРѕС… РІРёРґС–РІ С‚СЂР°РЅСЃРїРѕСЂС‚Сѓ РїРѕС‚СЂС–Р±РµРЅ РіР°СЂР°Р¶!");
 						return show_player_cars(playerid);
 					}*/
 					
 					if(GetPVarIntNew(playerid, "trucker_job") == 1)
 					{
 						pSelectedCar[playerid] = -1;
-						return SendErr(playerid, !"Неможливо використовувати під час роботи!");
+						return SendErr(playerid, !"РќРµРјРѕР¶Р»РёРІРѕ РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё РїС–Рґ С‡Р°СЃ СЂРѕР±РѕС‚Рё!");
 					}
 					
 					if(vehicle_player_count_car_load[playerid] > vehicle_player_max_user[playerid])
 					{
 						pSelectedCar[playerid] = -1;
 						show_player_cars(playerid);
-						return SendErr(playerid, !"Сталася технічна помилка! Код: #102");
+						return SendErr(playerid, !"РЎС‚Р°Р»Р°СЃСЏ С‚РµС…РЅС–С‡РЅР° РїРѕРјРёР»РєР°! РљРѕРґ: #102");
 					}
 					
 					if(get_player_veh_status(sql_id) == 1)
@@ -675,10 +675,10 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 					if(floatcmp(distance, 20.0) == 1)
 					{
 						pSelectedCar[playerid] = -1;
-						return SendErr(playerid, !"Ви знаходитесь на занадто далекій відстані від минулої парковки авто");
+						return SendErr(playerid, !"Р’Рё Р·РЅР°С…РѕРґРёС‚РµСЃСЊ РЅР° Р·Р°РЅР°РґС‚Рѕ РґР°Р»РµРєС–Р№ РІС–РґСЃС‚Р°РЅС– РІС–Рґ РјРёРЅСѓР»РѕС— РїР°СЂРєРѕРІРєРё Р°РІС‚Рѕ");
 					}
 					
-					SendSucc(playerid, !"Ви завантажили особистий транспортний засіб");
+					SendSucc(playerid, !"Р’Рё Р·Р°РІР°РЅС‚Р°Р¶РёР»Рё РѕСЃРѕР±РёСЃС‚РёР№ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРёР№ Р·Р°СЃС–Р±");
 
 					vehicle_player_count_car_load[playerid]++;
 
@@ -708,7 +708,7 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 				return true;	
 			}
 
-			// TODO: зробити кешування на даному етапі
+			// TODO: Р·СЂРѕР±РёС‚Рё РєРµС€СѓРІР°РЅРЅСЏ РЅР° РґР°РЅРѕРјСѓ РµС‚Р°РїС–
 
 			mysql_format(g_sql, GlobalString, sizeof(GlobalString), "SELECT `id` FROM `player_vehicles` WHERE `userid` = '%i'", pData[playerid][pMysqlID]);
 			new 
@@ -719,7 +719,7 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 			if(!row_count)
 			{
 				cache_delete(result);
-				return SendErr(playerid, !"Сталася технічна помилка! Код: #100");
+				return SendErr(playerid, !"РЎС‚Р°Р»Р°СЃСЏ С‚РµС…РЅС–С‡РЅР° РїРѕРјРёР»РєР°! РљРѕРґ: #100");
 			}
 
 			new sql_id = 0, models = 0;
@@ -735,9 +735,9 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 
 			pSelectedCar[playerid] = listitem;
 			
-			return SPD(playerid, DIALOG_PLAYER_VEHICLE_PANEL, DIALOG_STYLE_LIST, ""LIME_GREEN"Транспорт", 
-				""LIME_GREEN"1."cWH" Позначити транспорт на GPS {00ff00}(300 грн.)\n\
-				"LIME_GREEN"2."cWH" Завантажити транспорт", "Обрати", "Скасувати");
+			return SPD(playerid, DIALOG_PLAYER_VEHICLE_PANEL, DIALOG_STYLE_LIST, ""LIME_GREEN"РўСЂР°РЅСЃРїРѕСЂС‚", 
+				""LIME_GREEN"1."cWH" РџРѕР·РЅР°С‡РёС‚Рё С‚СЂР°РЅСЃРїРѕСЂС‚ РЅР° GPS {00ff00}(300 РіСЂРЅ.)\n\
+				"LIME_GREEN"2."cWH" Р—Р°РІР°РЅС‚Р°Р¶РёС‚Рё С‚СЂР°РЅСЃРїРѕСЂС‚", "РћР±СЂР°С‚Рё", "РЎРєР°СЃСѓРІР°С‚Рё");
 
 		}
 	    case DIALOG_CAR_CHANGE_PANEL:
@@ -757,7 +757,7 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 				if(GetPlayerMoneyEx(playerid) < 300)
 				{
 					show_player_vehicle_menu(playerid, sql_id);
-					return SendErr(playerid, !"У Вас недостатньо грошей для позначки транспорту по GPS!"); 
+					return SendErr(playerid, !"РЈ Р’Р°СЃ РЅРµРґРѕСЃС‚Р°С‚РЅСЊРѕ РіСЂРѕС€РµР№ РґР»СЏ РїРѕР·РЅР°С‡РєРё С‚СЂР°РЅСЃРїРѕСЂС‚Сѓ РїРѕ GPS!"); 
 				}
 					
 				new vehicle_id = -1;
@@ -773,14 +773,14 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 				}
 						
 				if(vehicle_id == -1)
-		            return SendErr(playerid, !"Сталася технічна помилка! Код: #101");
+		            return SendErr(playerid, !"РЎС‚Р°Р»Р°СЃСЏ С‚РµС…РЅС–С‡РЅР° РїРѕРјРёР»РєР°! РљРѕРґ: #101");
 						
 				if(GetVehicleVirtualWorld(vehicle_id))
 				{
 					pTemp[playerid][pGPS] = true;
 					SetPlayerCheckpointEx(playerid, 2214.7146,-1967.1420,18.5226, 4.0);
 
-					SendSucc(playerid, !"Штраф стоянка, де знаходиться автомобіль позначено на карті!");
+					SendSucc(playerid, !"РЁС‚СЂР°С„ СЃС‚РѕСЏРЅРєР°, РґРµ Р·РЅР°С…РѕРґРёС‚СЊСЃСЏ Р°РІС‚РѕРјРѕР±С–Р»СЊ РїРѕР·РЅР°С‡РµРЅРѕ РЅР° РєР°СЂС‚С–!");
 				}
 				else 
 				{
@@ -792,10 +792,10 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 
 					pTemp[playerid][pGPS] = true;
 
-					SendSucc(playerid, !"Ви позначили транспортний засіб на карті");
+					SendSucc(playerid, !"Р’Рё РїРѕР·РЅР°С‡РёР»Рё С‚СЂР°РЅСЃРїРѕСЂС‚РЅРёР№ Р·Р°СЃС–Р± РЅР° РєР°СЂС‚С–");
 				}
 						
-				give_money(playerid, -300, "Плата за позначку авто");
+				give_money(playerid, -300, "РџР»Р°С‚Р° Р·Р° РїРѕР·РЅР°С‡РєСѓ Р°РІС‚Рѕ");
 			}
 				
 			case 1: return show_vehicle_info(playerid, sql_id);
@@ -805,15 +805,15 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 				if(GetPlayerMoneyEx(playerid) < 1500)
 				{
 					show_player_vehicle_menu(playerid, sql_id);
-					return SendErr(playerid, !"У Вас недостатньо грошей для буксирування транспортного засобу!");
+					return SendErr(playerid, !"РЈ Р’Р°СЃ РЅРµРґРѕСЃС‚Р°С‚РЅСЊРѕ РіСЂРѕС€РµР№ РґР»СЏ Р±СѓРєСЃРёСЂСѓРІР°РЅРЅСЏ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРіРѕ Р·Р°СЃРѕР±Сѓ!");
 				}
 
 			    destroy_player_vehicle_id(playerid, sql_id);
 				spawn_player_vehicle(playerid, sql_id);
 
-			    give_money(playerid, -1500, "Спавн транспорту");
+			    give_money(playerid, -1500, "РЎРїР°РІРЅ С‚СЂР°РЅСЃРїРѕСЂС‚Сѓ");
 
-				return SendSucc(playerid, !"Ви зареспавнили особистий транспортний засіб!");
+				return SendSucc(playerid, !"Р’Рё Р·Р°СЂРµСЃРїР°РІРЅРёР»Рё РѕСЃРѕР±РёСЃС‚РёР№ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРёР№ Р·Р°СЃС–Р±!");
 			}
 			case 3:
 			{
@@ -831,7 +831,7 @@ stock dialog_all_player_vehicle(playerid, dialogid, response, listitem, inputtex
 				{
 					destroy_player_vehicle_id(playerid, sql_id);
 
-				    return SendSucc(playerid, !"Ви вивантажили авто з сервера!");
+				    return SendSucc(playerid, !"Р’Рё РІРёРІР°РЅС‚Р°Р¶РёР»Рё Р°РІС‚Рѕ Р· СЃРµСЂРІРµСЂР°!");
 				}
 		}
 	    }
@@ -926,7 +926,7 @@ callback:: remove_player_vehicle_server(playerid)
 
 			DestroyVehicle(vehicle_player_max[playerid][i]);
 
-			printf("Вивантажено автомобіль з сервера! ID: %d | SQL ID: %d | №%d", vehicle_player_max[playerid][i], vehicle_player_max_sql[playerid][i], i);
+			printf("Р’РёРІР°РЅС‚Р°Р¶РµРЅРѕ Р°РІС‚РѕРјРѕР±С–Р»СЊ Р· СЃРµСЂРІРµСЂР°! ID: %d | SQL ID: %d | в„–%d", vehicle_player_max[playerid][i], vehicle_player_max_sql[playerid][i], i);
 
 			vehicle_player_max[playerid][i] = 0;
 			vehicle_player_max_sql[playerid][i] = 0;
@@ -1142,9 +1142,9 @@ stock dialog_accept_sell_car_gos(playerid, sql_id)
 {
 	SetPVarIntNew(playerid, "player_vehicle_select_sql", sql_id);
 
-	SPD(playerid, DIALOG_ACCEPT_CAR_FINAL, DIALOG_STYLE_MSGBOX, !""LIME_GREEN"Продаж авто в держ.вартість", !"\
-	"cWH"Ви впевнені, що хочете продати автомобіль в держ.вартість?\n\n\
-	Вам буде повернено 80% від вартості!", !"Так", !"Ні");
+	SPD(playerid, DIALOG_ACCEPT_CAR_FINAL, DIALOG_STYLE_MSGBOX, !""LIME_GREEN"РџСЂРѕРґР°Р¶ Р°РІС‚Рѕ РІ РґРµСЂР¶.РІР°СЂС‚С–СЃС‚СЊ", !"\
+	"cWH"Р’Рё РІРїРµРІРЅРµРЅС–, С‰Рѕ С…РѕС‡РµС‚Рµ РїСЂРѕРґР°С‚Рё Р°РІС‚РѕРјРѕР±С–Р»СЊ РІ РґРµСЂР¶.РІР°СЂС‚С–СЃС‚СЊ?\n\n\
+	Р’Р°Рј Р±СѓРґРµ РїРѕРІРµСЂРЅРµРЅРѕ 80% РІС–Рґ РІР°СЂС‚РѕСЃС‚С–!", !"РўР°Рє", !"РќС–");
 	return true;
 }
 
@@ -1173,7 +1173,7 @@ stock sell_car_gos_final(playerid)
 	{
 		final_money = floatround(transport_config[GetVehicleModel(vehicle_id)-400][transport_price]*0.8);
 
-		give_money(playerid, final_money, "Продаж особистого транспорту");
+		give_money(playerid, final_money, "РџСЂРѕРґР°Р¶ РѕСЃРѕР±РёСЃС‚РѕРіРѕ С‚СЂР°РЅСЃРїРѕСЂС‚Сѓ");
 	}
 
 	new 
@@ -1184,20 +1184,20 @@ stock sell_car_gos_final(playerid)
 
     if(vehicle[vehicle_id][vehicle_prize] == -1)
     {
-	    SendSucc(playerid, !"Ви успішно продали особистий транспорт в держ.вартість!");
-		SendMessage(playerid, -1, "Ви отримали з продажу автомобіля в держ.вартість %d гривень", final_money);
+	    SendSucc(playerid, !"Р’Рё СѓСЃРїС–С€РЅРѕ РїСЂРѕРґР°Р»Рё РѕСЃРѕР±РёСЃС‚РёР№ С‚СЂР°РЅСЃРїРѕСЂС‚ РІ РґРµСЂР¶.РІР°СЂС‚С–СЃС‚СЊ!");
+		SendMessage(playerid, -1, "Р’Рё РѕС‚СЂРёРјР°Р»Рё Р· РїСЂРѕРґР°Р¶Сѓ Р°РІС‚РѕРјРѕР±С–Р»СЏ РІ РґРµСЂР¶.РІР°СЂС‚С–СЃС‚СЊ %d РіСЂРёРІРµРЅСЊ", final_money);
 		
 		new text[256];
-	    format(text, sizeof(text), "Продаж автомобіля SQL ID: %d | SERVER ID: %d | Марка: %s в держ.вартість %d гривень", sql_id, vehicle_id, transport_config[GetVehicleModel(vehicle_id)-400][transport_name], final_money);
+	    format(text, sizeof(text), "РџСЂРѕРґР°Р¶ Р°РІС‚РѕРјРѕР±С–Р»СЏ SQL ID: %d | SERVER ID: %d | РњР°СЂРєР°: %s РІ РґРµСЂР¶.РІР°СЂС‚С–СЃС‚СЊ %d РіСЂРёРІРµРЅСЊ", sql_id, vehicle_id, transport_config[GetVehicleModel(vehicle_id)-400][transport_name], final_money);
 	    logs_vehicle(playerid, pData[playerid][pMysqlID], text);
 	}
 	else
 	{
-	    SendSucc(playerid, !"Ви успішно продали особистий транспорт в держ.вартість!");
-		SendMessage(playerid, -1, "Ви отримали з продажу автомобіля в держ.вартість 0 гривень, так як це акційний транспорт!");
+	    SendSucc(playerid, !"Р’Рё СѓСЃРїС–С€РЅРѕ РїСЂРѕРґР°Р»Рё РѕСЃРѕР±РёСЃС‚РёР№ С‚СЂР°РЅСЃРїРѕСЂС‚ РІ РґРµСЂР¶.РІР°СЂС‚С–СЃС‚СЊ!");
+		SendMessage(playerid, -1, "Р’Рё РѕС‚СЂРёРјР°Р»Рё Р· РїСЂРѕРґР°Р¶Сѓ Р°РІС‚РѕРјРѕР±С–Р»СЏ РІ РґРµСЂР¶.РІР°СЂС‚С–СЃС‚СЊ 0 РіСЂРёРІРµРЅСЊ, С‚Р°Рє СЏРє С†Рµ Р°РєС†С–Р№РЅРёР№ С‚СЂР°РЅСЃРїРѕСЂС‚!");
 
 		new text[256];
-	    format(text, sizeof(text), "Продаж акційного автомобіля SQL ID: %d | SERVER ID: %d | Марка: %s в держ.вартість %d гривень", sql_id, vehicle_id, transport_config[GetVehicleModel(vehicle_id)-400][transport_name], 0);
+	    format(text, sizeof(text), "РџСЂРѕРґР°Р¶ Р°РєС†С–Р№РЅРѕРіРѕ Р°РІС‚РѕРјРѕР±С–Р»СЏ SQL ID: %d | SERVER ID: %d | РњР°СЂРєР°: %s РІ РґРµСЂР¶.РІР°СЂС‚С–СЃС‚СЊ %d РіСЂРёРІРµРЅСЊ", sql_id, vehicle_id, transport_config[GetVehicleModel(vehicle_id)-400][transport_name], 0);
 	    logs_vehicle(playerid, pData[playerid][pMysqlID], text);
 	}
 
@@ -1231,24 +1231,24 @@ stock show_vehicle_info(playerid, sql_id)
 		model_car = GetVehicleModel(vehicle_id)-400;
 
     format(GlobalString, sizeof(GlobalString), "\
-        "cGREY"Пункт\t"cGREY"Інформація\n\
-        "LIME_GREEN"- "cWH"Найменування моделі\t"LIME_GREEN"%s\n\
-        "LIME_GREEN"- "cWH"Держ.ціна автомобіля\t"cGR"%d гривень\n\
-        "LIME_GREEN"- "cWH"Об'єм бензобака автомобіля\t"cGR"%d літрів\n\
-        "LIME_GREEN"- "cWH"Клас автомобіля\t"LIME_GREEN"%s\n\
-        "LIME_GREEN"- "cWH"Можливість продажу\t"LIME_GREEN"%s\n\
-        "LIME_GREEN"- "cWH"Можливість таксувати\t"LIME_GREEN"%s\n\
-        "LIME_GREEN"- "cWH"Тип палива\t"LIME_GREEN"%s\n\
-        "LIME_GREEN"- "cWH"Максимальна швидкість\t"LIME_GREEN"%d KM/Г", 
+        "cGREY"РџСѓРЅРєС‚\t"cGREY"Р†РЅС„РѕСЂРјР°С†С–СЏ\n\
+        "LIME_GREEN"- "cWH"РќР°Р№РјРµРЅСѓРІР°РЅРЅСЏ РјРѕРґРµР»С–\t"LIME_GREEN"%s\n\
+        "LIME_GREEN"- "cWH"Р”РµСЂР¶.С†С–РЅР° Р°РІС‚РѕРјРѕР±С–Р»СЏ\t"cGR"%d РіСЂРёРІРµРЅСЊ\n\
+        "LIME_GREEN"- "cWH"РћР±'С”Рј Р±РµРЅР·РѕР±Р°РєР° Р°РІС‚РѕРјРѕР±С–Р»СЏ\t"cGR"%d Р»С–С‚СЂС–РІ\n\
+        "LIME_GREEN"- "cWH"РљР»Р°СЃ Р°РІС‚РѕРјРѕР±С–Р»СЏ\t"LIME_GREEN"%s\n\
+        "LIME_GREEN"- "cWH"РњРѕР¶Р»РёРІС–СЃС‚СЊ РїСЂРѕРґР°Р¶Сѓ\t"LIME_GREEN"%s\n\
+        "LIME_GREEN"- "cWH"РњРѕР¶Р»РёРІС–СЃС‚СЊ С‚Р°РєСЃСѓРІР°С‚Рё\t"LIME_GREEN"%s\n\
+        "LIME_GREEN"- "cWH"РўРёРї РїР°Р»РёРІР°\t"LIME_GREEN"%s\n\
+        "LIME_GREEN"- "cWH"РњР°РєСЃРёРјР°Р»СЊРЅР° С€РІРёРґРєС–СЃС‚СЊ\t"LIME_GREEN"%d KM/Р“", 
         transport_config[model_car][transport_name],
         transport_config[model_car][transport_price],
         transport_config[model_car][transport_tank],
         get_class_veh(model_car),
-        (transport_config[model_car][transport_sell_active] == 1) ? (""cGR"Доступна") : (""cLRED"Відсутня"),
-        (transport_config[model_car][transport_taxi_active] == 1) ? (""cGR"Доступна") : (""cLRED"Відсутня"),
+        (transport_config[model_car][transport_sell_active] == 1) ? (""cGR"Р”РѕСЃС‚СѓРїРЅР°") : (""cLRED"Р’С–РґСЃСѓС‚РЅСЏ"),
+        (transport_config[model_car][transport_taxi_active] == 1) ? (""cGR"Р”РѕСЃС‚СѓРїРЅР°") : (""cLRED"Р’С–РґСЃСѓС‚РЅСЏ"),
        	get_fuel_type_veh(model_car),
        	transport_config[model_car][transport_max_speed]);
-    return SPD(playerid, 0, DIALOG_STYLE_TABLIST_HEADERS, !""LIME_GREEN"Інформація про автомобіль", GlobalString, !"Обрати", !"Закрити"); 
+    return SPD(playerid, 0, DIALOG_STYLE_TABLIST_HEADERS, !""LIME_GREEN"Р†РЅС„РѕСЂРјР°С†С–СЏ РїСЂРѕ Р°РІС‚РѕРјРѕР±С–Р»СЊ", GlobalString, !"РћР±СЂР°С‚Рё", !"Р—Р°РєСЂРёС‚Рё"); 
 }
 
 stock show_engine_car_cmd(playerid, sql_id)
@@ -1270,17 +1270,17 @@ stock show_engine_car_cmd(playerid, sql_id)
 		return show_electrocar_engine_cmd(playerid, sql_id);
 
     format(GlobalString, sizeof(GlobalString), "\
-        "cGREY"Запчастина\t"cGREY"Стан\t"cGREY"Дата заміни\n\
-        "LIME_GREEN"- "cWH"Кількість оливи\t"cGR"%d%%\t"cWH"%s\n\
-        "LIME_GREEN"- "cWH"Стан свічок\t"cGR"%d%%\t"cWH"%s\n\
-        "LIME_GREEN"- "cWH"Стан гальм\t"cGR"%d%%\t"cWH"%s\n\
-        "LIME_GREEN"- "cWH"Стан ременів\t"cGR"%d%%\t"cWH"%s\n\
-        "LIME_GREEN"- "cWH"Стан стартера\t"cGR"%d%%\t"cWH"%s\n\
-        "LIME_GREEN"- "cWH"Стан генератора\t"cGR"%d%%\t"cWH"%s\n\
-        "LIME_GREEN"- "cWH"Стан форсунок\t"cGR"%d%%\t"cWH"%s\n\
-        "LIME_GREEN"- "cWH"Стан насосів\t"cGR"%d%%\t"cWH"%s\n\
+        "cGREY"Р—Р°РїС‡Р°СЃС‚РёРЅР°\t"cGREY"РЎС‚Р°РЅ\t"cGREY"Р”Р°С‚Р° Р·Р°РјС–РЅРё\n\
+        "LIME_GREEN"- "cWH"РљС–Р»СЊРєС–СЃС‚СЊ РѕР»РёРІРё\t"cGR"%d%%\t"cWH"%s\n\
+        "LIME_GREEN"- "cWH"РЎС‚Р°РЅ СЃРІС–С‡РѕРє\t"cGR"%d%%\t"cWH"%s\n\
+        "LIME_GREEN"- "cWH"РЎС‚Р°РЅ РіР°Р»СЊРј\t"cGR"%d%%\t"cWH"%s\n\
+        "LIME_GREEN"- "cWH"РЎС‚Р°РЅ СЂРµРјРµРЅС–РІ\t"cGR"%d%%\t"cWH"%s\n\
+        "LIME_GREEN"- "cWH"РЎС‚Р°РЅ СЃС‚Р°СЂС‚РµСЂР°\t"cGR"%d%%\t"cWH"%s\n\
+        "LIME_GREEN"- "cWH"РЎС‚Р°РЅ РіРµРЅРµСЂР°С‚РѕСЂР°\t"cGR"%d%%\t"cWH"%s\n\
+        "LIME_GREEN"- "cWH"РЎС‚Р°РЅ С„РѕСЂСЃСѓРЅРѕРє\t"cGR"%d%%\t"cWH"%s\n\
+        "LIME_GREEN"- "cWH"РЎС‚Р°РЅ РЅР°СЃРѕСЃС–РІ\t"cGR"%d%%\t"cWH"%s\n\
         "LIME_GREEN"\t\n\
-        "LIME_GREEN"- "cWH"Пробіг автомобіля\t"cGR"%d км", 
+        "LIME_GREEN"- "cWH"РџСЂРѕР±С–Рі Р°РІС‚РѕРјРѕР±С–Р»СЏ\t"cGR"%d РєРј", 
         floatround(vehicle[vehicle_id][consumables_oil], floatround_round),
         vehicle[vehicle_id][consumables_candles_date],
         floatround(vehicle[vehicle_id][consumables_candles], floatround_round),
@@ -1298,7 +1298,7 @@ stock show_engine_car_cmd(playerid, sql_id)
 		floatround(vehicle[vehicle_id][consumables_fuel], floatround_round),
 		vehicle[vehicle_id][consumables_fuel_date],
 		floatround(vehicle[vehicle_id][cMileage], floatround_round));
-    return SPD(playerid, DIALOG_ENGINE_STATUS, DIALOG_STYLE_TABLIST_HEADERS, !""LIME_GREEN"Стан автомобіля:", GlobalString, !"Обрати", !"Закрити"); 
+    return SPD(playerid, DIALOG_ENGINE_STATUS, DIALOG_STYLE_TABLIST_HEADERS, !""LIME_GREEN"РЎС‚Р°РЅ Р°РІС‚РѕРјРѕР±С–Р»СЏ:", GlobalString, !"РћР±СЂР°С‚Рё", !"Р—Р°РєСЂРёС‚Рё"); 
 
 
 }
@@ -1319,12 +1319,12 @@ stock show_electrocar_engine_cmd(playerid, sql_id)
 	}
 
     format(GlobalString, sizeof(GlobalString), "\
-        "cGREY"Запчастина\t"cGREY"Стан\t"cGREY"Дата заміни\n\
-        "LIME_GREEN"- "cWH"Стан гальм\t"cGR"%d%%\t"cWH"%s\n\
-        "LIME_GREEN"- "cWH"Стан генератора\t"cGR"%d%%\t"cWH"%s\n\
-        "LIME_GREEN"- "cWH"Стан батареї\t"cGR"%d%%\t"cWH"%s\n\
+        "cGREY"Р—Р°РїС‡Р°СЃС‚РёРЅР°\t"cGREY"РЎС‚Р°РЅ\t"cGREY"Р”Р°С‚Р° Р·Р°РјС–РЅРё\n\
+        "LIME_GREEN"- "cWH"РЎС‚Р°РЅ РіР°Р»СЊРј\t"cGR"%d%%\t"cWH"%s\n\
+        "LIME_GREEN"- "cWH"РЎС‚Р°РЅ РіРµРЅРµСЂР°С‚РѕСЂР°\t"cGR"%d%%\t"cWH"%s\n\
+        "LIME_GREEN"- "cWH"РЎС‚Р°РЅ Р±Р°С‚Р°СЂРµС—\t"cGR"%d%%\t"cWH"%s\n\
         "LIME_GREEN"\t\n\
-        "LIME_GREEN"- "cWH"Пробіг автомобіля\t"cGR"%d км", 
+        "LIME_GREEN"- "cWH"РџСЂРѕР±С–Рі Р°РІС‚РѕРјРѕР±С–Р»СЏ\t"cGR"%d РєРј", 
 		floatround(vehicle[vehicle_id][consumables_brake], floatround_round),
 		vehicle[vehicle_id][consumables_brake_date],
 		floatround(vehicle[vehicle_id][cGeneratorEnergy], floatround_round),
@@ -1332,19 +1332,21 @@ stock show_electrocar_engine_cmd(playerid, sql_id)
 		floatround(vehicle[vehicle_id][cBatteryEnergy], floatround_round),
 		vehicle[vehicle_id][consumables_fuel_date],
 		floatround(vehicle[vehicle_id][cMileage], floatround_round));
-    return SPD(playerid, DIALOG_ENGINE_STATUS_ELECTRO, DIALOG_STYLE_TABLIST_HEADERS, !""LIME_GREEN"Стан автомобіля:", GlobalString, !"Обрати", !"Закрити"); 
+    return SPD(playerid, DIALOG_ENGINE_STATUS_ELECTRO, DIALOG_STYLE_TABLIST_HEADERS, !""LIME_GREEN"РЎС‚Р°РЅ Р°РІС‚РѕРјРѕР±С–Р»СЏ:", GlobalString, !"РћР±СЂР°С‚Рё", !"Р—Р°РєСЂРёС‚Рё"); 
 
 }
 
 CMD:sellcar(playerid) {
 	if(GetPVarIntNew(playerid, "trucker_job") == 1)
-		return SendErr(playerid, !"Неможливо використовувати під час роботи!");
+		return SendErr(playerid, !"РќРµРјРѕР¶Р»РёРІРѕ РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё РїС–Рґ С‡Р°СЃ СЂРѕР±РѕС‚Рё!");
 
+    new klaus = lox;
+    new lox = klaus;
 	if(GetPVarIntNew(playerid, "active_player_gruz_taxi") == 1)
-		return SendErr(playerid, !"Неможливо використовувати під час роботи!");
+		return SendErr(playerid, !"РќРµРјРѕР¶Р»РёРІРѕ РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё РїС–Рґ С‡Р°СЃ СЂРѕР±РѕС‚Рё!");
 
 	if(GetPVarIntNew(playerid, "active_player_gruz_taxi_p") == 1)
-		return SendErr(playerid, !"Неможливо використовувати під час роботи!");
+		return SendErr(playerid, !"РќРµРјРѕР¶Р»РёРІРѕ РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё РїС–Рґ С‡Р°СЃ СЂРѕР±РѕС‚Рё!");
 
 	SetPVarIntNew(playerid, "CarSellStatus", true);
 	show_player_cars(playerid);
