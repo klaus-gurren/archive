@@ -1,4 +1,4 @@
-new Max_rouleteID = 0; //макс кількість призів
+new Max_rouleteID = 0; //РјР°РєСЃ РєС–Р»СЊРєС–СЃС‚СЊ РїСЂРёР·С–РІ
 enum PrizCat
 {
     rouleteName[120],
@@ -56,7 +56,7 @@ callback::LoadRoulette()
     }
     else 
     {
-        print("Error: Помилка загрузки списка призів рулетки!");
+        print("Error: РџРѕРјРёР»РєР° Р·Р°РіСЂСѓР·РєРё СЃРїРёСЃРєР° РїСЂРёР·С–РІ СЂСѓР»РµС‚РєРё!");
     }
     return 1;
 }
@@ -85,18 +85,18 @@ callback::OnCheckRoulette(playerid)
             }
             else
             {
-                printf("Error: помилка загрузки рулетки %s. Причина: невідомий ID приза", pData[playerid][pNickname]);
-                return SendClientMessage(playerid, -1, "Помилка! Зверніться на форум проекта!");
+                printf("Error: РїРѕРјРёР»РєР° Р·Р°РіСЂСѓР·РєРё СЂСѓР»РµС‚РєРё %s. РџСЂРёС‡РёРЅР°: РЅРµРІС–РґРѕРјРёР№ ID РїСЂРёР·Р°", pData[playerid][pNickname]);
+                return SendClientMessage(playerid, -1, "РџРѕРјРёР»РєР°! Р—РІРµСЂРЅС–С‚СЊСЃСЏ РЅР° С„РѕСЂСѓРј РїСЂРѕРµРєС‚Р°!");
             }
         }
         OpenDialog(playerid,
 		    "Dialog_Roulete", DIALOG_STYLE_LIST,
-			!"Рулетка",
+			!"Р СѓР»РµС‚РєР°",
             big_fmt,
-			!"Обрати", !"Закрити"
+			!"РћР±СЂР°С‚Рё", !"Р—Р°РєСЂРёС‚Рё"
 		);
     }
-    else SendClientMessage(playerid, -1, "Призів не знайдено!");
+    else SendClientMessage(playerid, -1, "РџСЂРёР·С–РІ РЅРµ Р·РЅР°Р№РґРµРЅРѕ!");
     return 1;
 }
 stock ValidRoulette(playerid, id)
@@ -122,7 +122,7 @@ DialogResponse:Dialog_Roulete(playerid, response, listitem, inputtext[])
     {
         case 1:
         {
-            format(strprize, sizeof(strprize), "Вы успішно забрали свій приз {ffff00}%d донат-коїнів", prize_info[playerid][sValue][listitem]);
+            format(strprize, sizeof(strprize), "Р’С‹ СѓСЃРїС–С€РЅРѕ Р·Р°Р±СЂР°Р»Рё СЃРІС–Р№ РїСЂРёР· {ffff00}%d РґРѕРЅР°С‚-РєРѕС—РЅС–РІ", prize_info[playerid][sValue][listitem]);
             SendSucc(playerid, strprize);
             user_data[playerid][pDonate] += prize_info[playerid][sValue][listitem];
             UpdatePlayerIntData(playerid, "donate", user_data[playerid][pDonate]);
@@ -132,22 +132,22 @@ DialogResponse:Dialog_Roulete(playerid, response, listitem, inputtext[])
         }
         case 2:
         {
-            format(strprize, sizeof(strprize), "Ви успішно забрали свій приз {ffff00}%d ігрової валюти",prize_info[playerid][sValue][listitem]);
+            format(strprize, sizeof(strprize), "Р’Рё СѓСЃРїС–С€РЅРѕ Р·Р°Р±СЂР°Р»Рё СЃРІС–Р№ РїСЂРёР· {ffff00}%d С–РіСЂРѕРІРѕС— РІР°Р»СЋС‚Рё",prize_info[playerid][sValue][listitem]);
             SendSucc(playerid, strprize);
-            give_money(playerid, prize_info[playerid][sValue][listitem], "Забрав приз із рулетки");
+            give_money(playerid, prize_info[playerid][sValue][listitem], "Р—Р°Р±СЂР°РІ РїСЂРёР· С–Р· СЂСѓР»РµС‚РєРё");
           
             mysql_tquery_s(g_sql, str_format("UPDATE `ucp_drop_roulette` SET `p_status` = 1 WHERE `p_number` = '%d'", prize_info[playerid][sID][listitem]));
             return 1;
         }
-        case 3: format(strprize, sizeof(strprize), "{ffffff}Ви дійсно хочете продати цей автомобіль (id:%d) за {ffff00}%d M-Coins?{ffffff}\n Якщо ні нажміть кнопку {ffff00}'Забрати'{ffffff}\n Увага! Цю дію скасувати не можна!", prize_info[playerid][sValue][listitem], prize_info[playerid][sPrice][listitem]);
-        case 4: format(strprize, sizeof(strprize), "{ffffff}Ви дійсно хочете продати цей скін (id:%d) за {ffff00}%d M-Coins?{ffffff}\n Якщо ні нажміть кнопку {ffff00}'Забрати'{ffffff}\n Увага! Цю дію скасувати не можна! \nСкін що наразі знаходиться на вас буде замінено!!!", prize_info[playerid][sValue][listitem], prize_info[playerid][sPrice][listitem]);
+        case 3: format(strprize, sizeof(strprize), "{ffffff}Р’Рё РґС–Р№СЃРЅРѕ С…РѕС‡РµС‚Рµ РїСЂРѕРґР°С‚Рё С†РµР№ Р°РІС‚РѕРјРѕР±С–Р»СЊ (id:%d) Р·Р° {ffff00}%d M-Coins?{ffffff}\n РЇРєС‰Рѕ РЅС– РЅР°Р¶РјС–С‚СЊ РєРЅРѕРїРєСѓ {ffff00}'Р—Р°Р±СЂР°С‚Рё'{ffffff}\n РЈРІР°РіР°! Р¦СЋ РґС–СЋ СЃРєР°СЃСѓРІР°С‚Рё РЅРµ РјРѕР¶РЅР°!", prize_info[playerid][sValue][listitem], prize_info[playerid][sPrice][listitem]);
+        case 4: format(strprize, sizeof(strprize), "{ffffff}Р’Рё РґС–Р№СЃРЅРѕ С…РѕС‡РµС‚Рµ РїСЂРѕРґР°С‚Рё С†РµР№ СЃРєС–РЅ (id:%d) Р·Р° {ffff00}%d M-Coins?{ffffff}\n РЇРєС‰Рѕ РЅС– РЅР°Р¶РјС–С‚СЊ РєРЅРѕРїРєСѓ {ffff00}'Р—Р°Р±СЂР°С‚Рё'{ffffff}\n РЈРІР°РіР°! Р¦СЋ РґС–СЋ СЃРєР°СЃСѓРІР°С‚Рё РЅРµ РјРѕР¶РЅР°! \nРЎРєС–РЅ С‰Рѕ РЅР°СЂР°Р·С– Р·РЅР°С…РѕРґРёС‚СЊСЃСЏ РЅР° РІР°СЃ Р±СѓРґРµ Р·Р°РјС–РЅРµРЅРѕ!!!", prize_info[playerid][sValue][listitem], prize_info[playerid][sPrice][listitem]);
     }
     OpenDialog(playerid,
 
 		    "Dialog_Roulete_Sell", DIALOG_STYLE_MSGBOX,
-			!"Рулетка",
+			!"Р СѓР»РµС‚РєР°",
             strprize,
-			!"Забрати", !"Продати"
+			!"Р—Р°Р±СЂР°С‚Рё", !"РџСЂРѕРґР°С‚Рё"
 		);
     return 1;
 }
@@ -166,13 +166,13 @@ DialogResponse:Dialog_Roulete_Sell(playerid, response, listitem, inputtext[])
 			    cache_get_row_count(all_vehicle_player);
 			    cache_delete(carfind);
 			
-			    if(all_vehicle_player >= vehicle_player_max_user[playerid]) return SendErr(playerid, !"Перевищено ліміт слотів авто, звільніть слот під приз!");
+			    if(all_vehicle_player >= vehicle_player_max_user[playerid]) return SendErr(playerid, !"РџРµСЂРµРІРёС‰РµРЅРѕ Р»С–РјС–С‚ СЃР»РѕС‚С–РІ Р°РІС‚Рѕ, Р·РІС–Р»СЊРЅС–С‚СЊ СЃР»РѕС‚ РїС–Рґ РїСЂРёР·!");
 			    mysql_tquery_s(g_sql, str_format("UPDATE `ucp_drop_roulette` SET `p_status` = 1 WHERE `p_number` = '%d'", prize_info[playerid][sID][list_id]));
                 return RouletteCar(playerid, prize_info[playerid][sValue][list_id]);
             }
             case 4:
             {
-                format(fmt_str, sizeof(fmt_str), "Ви успішно забрали свій приз {ffff00}Одяг №%d",prize_info[playerid][sValue][list_id]);
+                format(fmt_str, sizeof(fmt_str), "Р’Рё СѓСЃРїС–С€РЅРѕ Р·Р°Р±СЂР°Р»Рё СЃРІС–Р№ РїСЂРёР· {ffff00}РћРґСЏРі в„–%d",prize_info[playerid][sValue][list_id]);
                 pData[playerid][pSkin] = prize_info[playerid][sValue][list_id];
                 UpdatePlayerIntData(playerid, "skin", pData[playerid][pSkin]);
                 SetPlayerSkin(playerid, pData[playerid][pSkin]);
@@ -188,7 +188,7 @@ DialogResponse:Dialog_Roulete_Sell(playerid, response, listitem, inputtext[])
         user_data[playerid][pDonate] += prize_info[playerid][sPrice][list_id];
         UpdatePlayerIntData(playerid, "donate", user_data[playerid][pDonate]);
         
-        format(fmt_str, sizeof(fmt_str), "Ви успішно продали свій приз за %d Донат-коїнів", prize_info[playerid][sPrice][list_id]);
+        format(fmt_str, sizeof(fmt_str), "Р’Рё СѓСЃРїС–С€РЅРѕ РїСЂРѕРґР°Р»Рё СЃРІС–Р№ РїСЂРёР· Р·Р° %d Р”РѕРЅР°С‚-РєРѕС—РЅС–РІ", prize_info[playerid][sPrice][list_id]);
         SendSucc(playerid, fmt_str);
         mysql_tquery_s(g_sql, str_format("UPDATE `ucp_drop_roulette` SET `p_status` = 1 WHERE `p_number` = '%d'", prize_info[playerid][sID][list_id]));
     }
@@ -213,7 +213,7 @@ stock RouletteCar(const playerid, const car)
 		);
 	mysql_tquery(g_sql, GlobalString, !"", !"");
 
-    SendSucc(playerid, !"Вітаю! Ви успвшно забрали свій автомобіль із рулетки!");
-    SendInf(playerid, !"Автомобіль буде припаркований на штраф стоянці!");
+    SendSucc(playerid, !"Р’С–С‚Р°СЋ! Р’Рё СѓСЃРїРІС€РЅРѕ Р·Р°Р±СЂР°Р»Рё СЃРІС–Р№ Р°РІС‚РѕРјРѕР±С–Р»СЊ С–Р· СЂСѓР»РµС‚РєРё!");
+    SendInf(playerid, !"РђРІС‚РѕРјРѕР±С–Р»СЊ Р±СѓРґРµ РїСЂРёРїР°СЂРєРѕРІР°РЅРёР№ РЅР° С€С‚СЂР°С„ СЃС‚РѕСЏРЅС†С–!");
 	return 1;
 }
