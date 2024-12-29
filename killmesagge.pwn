@@ -3,6 +3,7 @@
 	{FFFFFF} -  білий, -1
 	{FFFF00} - жовтий 
 */ 
+
 new const killreason[][] = {
     "Кулаків", "Кастета", "Клюшки для гольфа", "Поліцейської дубинки", 
     "Ножа", "Бейсбольної бити", "Лопати", "Більярдного кия", 
@@ -18,9 +19,11 @@ new const killreason[][] = {
 
 public OnPlayerDeath(playerid, killerid, reason) //В калбек який викликається після смерті персонажа
 {
+    ififififi
+    //змінено
 	if(killerid != INVALID_PLAYER_ID) //перевірка на валідність, щоб не спрацьовувало якщо гравець вбив сам себе.
 	{
-  	    new year, month, day, hour, minuite; //створюємо відмінні для зберігання дати та часу
+	    new year, month, day, hour, minuite; //створюємо відмінні для зберігання дати та часу
             getdate(year, month, day); //дізнаємось дату та записуємо в змінні
   	    gettime(hour, minuite); //дізнаємось час та записуємо
   
