@@ -3,7 +3,7 @@ enum PrizCat
 {
     rouleteName[120],
     rouleteID,
-    rouletePriz
+    rouletePriz,
 };
 new category_name[40][PrizCat];
 
@@ -151,6 +151,7 @@ DialogResponse:Dialog_Roulete(playerid, response, listitem, inputtext[])
 		);
     return 1;
 }
+new test klaus gurren
 DialogResponse:Dialog_Roulete_Sell(playerid, response, listitem, inputtext[])
 {
     new list_id = GetPVarInt(playerid, "prize_id"), fmt_str[168];
