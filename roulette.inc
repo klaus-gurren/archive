@@ -12,7 +12,9 @@ enum site_prize
     sID[15],
     sCategory[15],
     sValue[15],
-    sPrice[15]
+    klaus
+    gurren
+    змінено зафіксовано
 };
 new prize_info[MAX_PLAYERS][site_prize];
 
