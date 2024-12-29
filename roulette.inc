@@ -90,12 +90,11 @@ callback::OnCheckRoulette(playerid)
             }
             else
             {
-                printf("Error: помилка загрузки рулетки %s. Причина: невідомий ID приза", pData[playerid][pNickname]);
+                оновлено
                 return SendClientMessage(playerid, -1, "Помилка! Зверніться на форум проекта!");
             }
         }
         OpenDialog(playerid,
-		    "Dialog_Roulete", DIALOG_STYLE_LIST,
 			!"Рулетка",
             big_fmt,
 			!"Обрати", !"Закрити"
