@@ -18,13 +18,13 @@ public OnPlayerConnect(playerid)
 }
 public OnPlayerSpawn(playerid)
 {
-    if(klaus[playerid][HP] == 0)
+    if(klaus[playerid][HP] != 0) SetPlayerHealth(playerid, klaus[playerid][HP]);
+    else
     {
         SetPlayerHealth(playerid, 1);
-        return //повернути спавном в лікарні;
+        return //spawn hospitals;
     }
-    SetPlayerHealth(playerid, klaus[playerid][HP]);
-    if(klaus[playerid][HP] < 10) SendClientMessage(playerid, -1, "Підказка | У вас мало здоров'я, використайте аптечку або зверніться в лікарню!");
+    if(klaus[playerid][HP] < 10 && klaus[playerid][HP] != 0) SendClientMessage(playerid, -1, "Підказка | У вас мало здоров'я, використайте аптечку або зверніться в лікарню!");
 	//код відновлення на місце виходу/звичайний спавн
     return 1;
 }
