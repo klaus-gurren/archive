@@ -18,7 +18,7 @@ CMD:radio(playerid, params[])
     {
         StopAudioStreamForPlayer(playerid);
         SendClientMessage(playerid, 0xFFFF00FF, "[Radio]: Радіо вимкнено!");
-        return OnRadio[playerid] = false;
+        return OnRadio{playerid} = false;
     }
     
     new id;
@@ -31,12 +31,12 @@ CMD:radio(playerid, params[])
     SendClientMessage(playerid, 0x00FF00FF, string);
     
     SendClientMessage(playerid, -1, "Для вимкнення радіо ведіть команду повторно");
-    OnRadio[playerid] = true;
+    OnRadio{playerid} = true;
     return 1;
 }
 
 public OnPlayerDisconnect(playerid, reason)
 {
-    OnRadio[playerid] = false;
+    OnRadio{playerid} = false;
     return 1;
 }
