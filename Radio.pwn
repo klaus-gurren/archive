@@ -25,7 +25,7 @@ CMD:radio(playerid, params[])
     if(sscanf(params, "d", id)) return SendClientMessage(playerid, 0xFFFF00FF, "[Radio]: Використовуйте: /radio | 1 | 2 ..]");
     if(id > sizeof(radioUA) -1 || id == 0) return SendClientMessage(playerid, 0xFFFF00FF, "Не вірний номер станції, або станції не існує");
     
-    new string[27 + (-2 + MAX_STATION_NAME)];
+    new string[30 + (-2 + MAX_STATION_NAME)];
     PlayAudioStreamForPlayer(playerid, radioUA[id][UrlStations]);
     format(string, sizeof(string), "[Radio]: Ви увімкнули %s!", radioUA[id][NameStations]);
     SendClientMessage(playerid, 0x00FF00FF, string);
