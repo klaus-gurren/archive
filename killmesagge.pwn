@@ -4,7 +4,7 @@
 	{FFFF00} - жовтий 
 */ 
 
-new const killreason[][] = {
+new const killreason[44][28] = {
     "Кулаків", "Кастета", "Клюшки для гольфа", "Поліцейської дубинки", 
     "Ножа", "Бейсбольної бити", "Лопати", "Більярдного кия", 
     "Катани", "Бензопили", "Великого дилдо", "Малого дилдо", 
@@ -17,19 +17,20 @@ new const killreason[][] = {
     "Самонаводящого гранатомета", "Вогнемета", "Мінігана", "Взривчатки",
     "Детонатора", "Балончика з краскою", "Вогнетушителя"}; //назви зброї з послідовною номерацією
 
-public OnPlayerDeath(playerid, killerid, reason) //В калбек який викликається після смерті персонажа
+public OnPlayerDeath(playerid, killerid, reason) //Калбек який викликається після смерті персонажа
 {
 	if(killerid != INVALID_PLAYER_ID) //перевірка на валідність, щоб не спрацьовувало якщо гравець вбив сам себе.
 	{
-	    new year, month, day, hour, minuite; //створюємо відмінні для зберігання дати та часу
-            getdate(year, month, day); //дізнаємось дату та записуємо в змінні
-  	    gettime(hour, minuite); //дізнаємось час та записуємо
+	    new year, month, day, hour, minuite;
+        getdate(year, month, day); //дізнаємось дату та записуємо в змінні
+	    gettime(hour, minuite); //дізнаємось час та записуємо
   
-            new string[62+(-6+MAX_PLAYER_NAME) + (3+27)+1]; //створюю масив для зберігання текста, з цілью мінімального споживання памяті підрахував макс.розмір символів
-  	    format(string, sizeof(string), "Ви були вбиті гравцем {F81414}%s[%d]. {FFFFFF}За допомогою: %s", Klaus[killerid], killerid, killreason[reason]); //форматуємо сам текст, Klaus[killerid] - змінити на масив що зберігає в собі нік, з аргументом killerid
+        new string[62+(-6+MAX_PLAYER_NAME) + (3+28) +1]; //Масив для текста, з цілью мінімального споживання памяті підрахував макс.розмір символів
+	    format(string, sizeof(string), "Ви були вбиті гравцем {F81414}%s[%d]. {FFFFFF}За допомогою: %s", Name[killerid], killerid, killreason[reason]);
+	    //форматуємо сам текст, Name[killerid] - змінити на масив що зберігає в собі нік, з аргументом killerid
 	    SendClientMessage(playerid, -1, string); //Відправляємо текст в чат playerid
 		
- 	    format(string, sizeof(string), "Час смерті {FFFF00}%02d:%02d | {FFFFFF}Дата: {FFFF00}%02d.%02d.%d", hour, minuite, day, month, year);
+	    format(string, sizeof(string), "Час смерті {FFFF00}%02d:%02d | {FFFFFF}Дата: {FFFF00}%02d.%02d.%d", hour, minuite, day, month, year);
 	    SendClientMessage(playerid, -1, string);
 	}
     return 1;
